@@ -1,146 +1,335 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>내 포트폴리오</title>
-  <meta name="description" content="데이터 분석가 포트폴리오" />
-  <style>
-    :root{
-      --bg:#0b0f19; --card:#121829; --muted:#9aa4bf; --text:#e6eaf4; --brand:#5eead4; --brand-2:#8b5cf6;
-      --max: 1000px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:radial-gradient(1200px 600px at 80% -10%, #1b1f33 0%, #0b0f19 60%), var(--bg); color:var(--text);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif}
-    a{color:var(--brand);text-decoration:none}
-    a:hover{text-decoration:underline}
-    header{position:sticky;top:0;z-index:50;background:rgba(11,15,25,.6);backdrop-filter: blur(8px);border-bottom:1px solid #20263a}
-    .nav{max-width:var(--max);margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 20px}
-    .nav .logo{font-weight:700;letter-spacing:.4px}
-    .nav .sp{flex:1}
-    .nav a.btn{padding:8px 12px;border:1px solid #243046;border-radius:10px}
-
-    .container{max-width:var(--max);margin:0 auto;padding:42px 20px}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:40px 0}
-    .hero h1{font-size:44px;line-height:1.1;margin:0 0 10px}
-    .hero p.lead{font-size:18px;color:var(--muted);margin:0 0 22px}
-    .pill{display:inline-block;padding:6px 10px;border:1px solid #223047;border-radius:999px;color:var(--muted);font-size:13px}
-    .kpis{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px}
-    .kpi{background:linear-gradient(180deg,#11172a,#0e1423);border:1px solid #1e2740;border-radius:14px;padding:14px 16px;min-width:160px}
-    .kpi .v{font-size:22px;font-weight:700}
-    .kpi .l{color:var(--muted);font-size:12px}
-
-    section{padding:28px 0}
-    .sec-title{font-size:22px;margin:0 0 14px}
-
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    @media (max-width: 900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
-
-    .card{background:linear-gradient(180deg,#0f1526,#0c1120);border:1px solid #1e2740;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px}
-    .card h3{margin:0 0 6px;font-size:18px}
-    .card p{margin:0;color:var(--muted)}
-    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
-    .tag{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid #20314b;color:var(--muted)}
-
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media (max-width: 900px){.two{grid-template-columns:1fr}}
-
-    .footer{color:#9aa4bf8c;border-top:1px solid #20263a;padding:24px 0;margin-top:30px}
-    .btn-cta{display:inline-block;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#071018;font-weight:700;padding:10px 14px;border-radius:12px}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:13px;color:#c6d0e9}
-    .ghost{opacity:.8}
-    .avatar{width:100%;aspect-ratio:1/1;border-radius:16px;background:conic-gradient(from 90deg at 80% 10%, #20294a, #0e172d)}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>준희 최 - 데이터 분석가 포트폴리오</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        .hero {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+        
+        .section {
+            margin: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: white;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .project-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: #f0f0f0;
+            color: #667eea;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+        
+        .about {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about h3 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .about p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .contact {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            transition: background 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background: #764ba2;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Top Nav -->
-  <header>
-    <nav class="nav">
-      <div class="logo">YourName · Data Analyst</div>
-      <div class="sp"></div>
-      <a href="#projects" class="btn">Projects</a>
-      <a href="#about" class="btn">About</a>
-      <a href="#contact" class="btn">Contact</a>
-      <a href="mailto:you@example.com" class="btn">Email</a>
-    </nav>
-  </header>
-
-  <!-- Hero / #header anchor to mirror example link -->
-  <main id="header" class="container">
-    <div class="hero">
-      <div>
-        <span class="pill">📊 Analytics · Python · SQL · Tableau</span>
-        <h1>Turning messy data into clear decisions</h1>
-        <p class="lead">10년차 빅테크 데이터 분석가 컨셉의 포트폴리오 템플릿입니다. E2E 파이프라인(수집→정제→모델링→대시보드)과 <span class="mono">Revenue = Traffic × CVR × AOV</span> 분석 사례를 담았습니다.</p>
-        <div class="kpis">
-          <div class="kpi"><div class="v">1M+</div><div class="l">rows merged (Pandas+SQL)</div></div>
-          <div class="kpi"><div class="v">+12%</div><div class="l">CVR uplift via funnel fix</div></div>
-          <div class="kpi"><div class="v">8</div><div class="l">prod dashboards (Tableau)</div></div>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">준희 최</div>
+                <ul class="nav-links">
+                    <li><a href="#projects">프로젝트</a></li>
+                    <li><a href="#about">소개</a></li>
+                    <li><a href="#contact">연락처</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-      <div>
-        <div class="avatar"></div>
-      </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>데이터로 인사이트를 만듭니다</h1>
+            <p>데이터 분석과 시각화를 통해 비즈니스 문제를 해결하는 데이터 분석가입니다</p>
+            <div class="skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">Excel</span>
+                <span class="skill-tag">Data Visualization</span>
+                <span class="skill-tag">Statistical Analysis</span>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2 class="section-title">주요 프로젝트</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="project-image">📊</div>
+                    <div class="project-content">
+                        <h3>E-Commerce 판매 분석</h3>
+                        <p>온라인 쇼핑몰의 13개월 거래 데이터를 분석하여 고객 세그먼트를 식별하고 매출 트렌드를 파악했습니다.</p>
+                        <div class="project-tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">RFM 분석</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">📈</div>
+                    <div class="project-content">
+                        <h3>Tableau 대시보드</h3>
+                        <p>소매점 4년간의 판매 데이터를 분석하고 인터랙티브 대시보드를 제작하여 주요 인사이트를 시각화했습니다.</p>
+                        <div class="project-tags">
+                            <span class="tag">Tableau</span>
+                            <span class="tag">BigQuery</span>
+                            <span class="tag">Dashboard</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🔍</div>
+                    <div class="project-content">
+                        <h3>고객 이탈 예측 모델</h3>
+                        <p>머신러닝 알고리즘을 활용하여 고객 이탈을 예측하고 리텐션 전략을 수립했습니다.</p>
+                        <div class="project-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Scikit-learn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="about">
+                <h3>저에 대해</h3>
+                <p>안녕하세요! 데이터 분석가 준희 최입니다. 복잡한 데이터에서 의미 있는 인사이트를 발굴하고, 이를 비즈니스 의사결정에 활용하는 것을 좋아합니다.</p>
+                <br>
+                <p>Python, SQL, Tableau 등의 도구를 활용하여 데이터 분석, 시각화, 그리고 예측 모델링 작업을 수행합니다. 데이터 기반의 문제 해결과 스토리텔링에 관심이 많습니다.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="contact">
+                <h2>연락하기</h2>
+                <p>협업이나 프로젝트 문의는 언제든 환영합니다!</p>
+                <br>
+                <a href="mailto:your.email@example.com" class="contact-btn">📧 이메일 보내기</a>
+                <a href="https://github.com/junhuichoi0628" class="contact-btn">💻 GitHub</a>
+                <a href="https://www.linkedin.com/in/yourprofile" class="contact-btn">💼 LinkedIn</a>
+            </div>
+        </section>
     </div>
 
-    <!-- Projects -->
-    <section id="projects">
-      <h2 class="sec-title">Featured Projects</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Full-Funnel Analysis: App → Purchase</h3>
-          <p class="ghost">Python (Pandas/NumPy) & SQL로 100만+ 레코드 정제·머지 후 유입→전환 누수 구간 탐지. 안드로이드 기존유저 장바구니 이탈 이슈 개선.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">EDA</span><span class="tag">Funnel</span></div>
-        </article>
-        <article class="card">
-          <h3>Tableau KPI Tree Dashboard</h3>
-          <p class="ghost">Revenue를 Traffic·CVR·AOV로 분해하는 트리형 대시보드. 주/월 단위 드릴다운과 채널·OS 필터 제공.</p>
-          <div class="tags"><span class="tag">Tableau</span><span class="tag">KPI Tree</span><span class="tag">Drilldown</span></div>
-        </article>
-        <article class="card">
-          <h3>Cohort Retention (iOS vs Android)</h3>
-          <p class="ghost">OS/버전 코호트별 D1~D30 잔존율 비교, 마이그레이션 임팩트 정량화.</p>
-          <div class="tags"><span class="tag">Cohort</span><span class="tag">Retention</span><span class="tag">Segment</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about">
-      <h2 class="sec-title">About</h2>
-      <div class="two">
-        <div class="card">
-          <h3>Who I am</h3>
-          <p>데이터로 제품/사용자 경험을 개선하는 분석가. EDA→가설→실험→대시보드의 선순환을 만듭니다.</p>
-          <p class="mono">Python, SQL, dbt, Airflow, BigQuery, Tableau</p>
-        </div>
-        <div class="card">
-          <h3>What I do</h3>
-          <p>• Funnel 분석 · AB테스트 설계 · 코호트 분석<br/>• KPI 트리 설계 · 모니터링 지표 표준화<br/>• 대시보드(운영/임원)와 알림 자동화</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <h2 class="sec-title">Contact</h2>
-      <div class="card">
-        <p>협업/채용 문의는 아래로 연락 주세요.</p>
-        <p><a class="btn-cta" href="mailto:you@example.com">📮 Mail to you@example.com</a></p>
-        <p class="ghost">GitHub Pages에 그대로 올리면 작동합니다. 폰트/색상/문구만 바꿔도 충분히 차별화돼요.</p>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container" style="padding:0">
-        © <span id="y"></span> YourName. Built for GitHub Pages.
-      </div>
+    <footer>
+        <p>&copy; 2025 준희 최. All rights reserved.</p>
     </footer>
-  </main>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
