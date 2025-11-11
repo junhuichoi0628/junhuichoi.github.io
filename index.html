@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>내 포트폴리오</title>
+  <meta name="description" content="데이터 분석가 포트폴리오" />
+  <style>
+    :root{
+      --bg:#0b0f19; --card:#121829; --muted:#9aa4bf; --text:#e6eaf4; --brand:#5eead4; --brand-2:#8b5cf6;
+      --max: 1000px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(1200px 600px at 80% -10%, #1b1f33 0%, #0b0f19 60%), var(--bg); color:var(--text);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,15,25,.6);backdrop-filter: blur(8px);border-bottom:1px solid #20263a}
+    .nav{max-width:var(--max);margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 20px}
+    .nav .logo{font-weight:700;letter-spacing:.4px}
+    .nav .sp{flex:1}
+    .nav a.btn{padding:8px 12px;border:1px solid #243046;border-radius:10px}
+
+    .container{max-width:var(--max);margin:0 auto;padding:42px 20px}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:40px 0}
+    .hero h1{font-size:44px;line-height:1.1;margin:0 0 10px}
+    .hero p.lead{font-size:18px;color:var(--muted);margin:0 0 22px}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid #223047;border-radius:999px;color:var(--muted);font-size:13px}
+    .kpis{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px}
+    .kpi{background:linear-gradient(180deg,#11172a,#0e1423);border:1px solid #1e2740;border-radius:14px;padding:14px 16px;min-width:160px}
+    .kpi .v{font-size:22px;font-weight:700}
+    .kpi .l{color:var(--muted);font-size:12px}
+
+    section{padding:28px 0}
+    .sec-title{font-size:22px;margin:0 0 14px}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width: 900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+
+    .card{background:linear-gradient(180deg,#0f1526,#0c1120);border:1px solid #1e2740;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px}
+    .card h3{margin:0 0 6px;font-size:18px}
+    .card p{margin:0;color:var(--muted)}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+    .tag{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid #20314b;color:var(--muted)}
+
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media (max-width: 900px){.two{grid-template-columns:1fr}}
+
+    .footer{color:#9aa4bf8c;border-top:1px solid #20263a;padding:24px 0;margin-top:30px}
+    .btn-cta{display:inline-block;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#071018;font-weight:700;padding:10px 14px;border-radius:12px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:13px;color:#c6d0e9}
+    .ghost{opacity:.8}
+    .avatar{width:100%;aspect-ratio:1/1;border-radius:16px;background:conic-gradient(from 90deg at 80% 10%, #20294a, #0e172d)}
+  </style>
+</head>
+<body>
+  <!-- Top Nav -->
+  <header>
+    <nav class="nav">
+      <div class="logo">YourName · Data Analyst</div>
+      <div class="sp"></div>
+      <a href="#projects" class="btn">Projects</a>
+      <a href="#about" class="btn">About</a>
+      <a href="#contact" class="btn">Contact</a>
+      <a href="mailto:you@example.com" class="btn">Email</a>
+    </nav>
+  </header>
+
+  <!-- Hero / #header anchor to mirror example link -->
+  <main id="header" class="container">
+    <div class="hero">
+      <div>
+        <span class="pill">📊 Analytics · Python · SQL · Tableau</span>
+        <h1>Turning messy data into clear decisions</h1>
+        <p class="lead">10년차 빅테크 데이터 분석가 컨셉의 포트폴리오 템플릿입니다. E2E 파이프라인(수집→정제→모델링→대시보드)과 <span class="mono">Revenue = Traffic × CVR × AOV</span> 분석 사례를 담았습니다.</p>
+        <div class="kpis">
+          <div class="kpi"><div class="v">1M+</div><div class="l">rows merged (Pandas+SQL)</div></div>
+          <div class="kpi"><div class="v">+12%</div><div class="l">CVR uplift via funnel fix</div></div>
+          <div class="kpi"><div class="v">8</div><div class="l">prod dashboards (Tableau)</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="avatar"></div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="sec-title">Featured Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Full-Funnel Analysis: App → Purchase</h3>
+          <p class="ghost">Python (Pandas/NumPy) & SQL로 100만+ 레코드 정제·머지 후 유입→전환 누수 구간 탐지. 안드로이드 기존유저 장바구니 이탈 이슈 개선.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">EDA</span><span class="tag">Funnel</span></div>
+        </article>
+        <article class="card">
+          <h3>Tableau KPI Tree Dashboard</h3>
+          <p class="ghost">Revenue를 Traffic·CVR·AOV로 분해하는 트리형 대시보드. 주/월 단위 드릴다운과 채널·OS 필터 제공.</p>
+          <div class="tags"><span class="tag">Tableau</span><span class="tag">KPI Tree</span><span class="tag">Drilldown</span></div>
+        </article>
+        <article class="card">
+          <h3>Cohort Retention (iOS vs Android)</h3>
+          <p class="ghost">OS/버전 코호트별 D1~D30 잔존율 비교, 마이그레이션 임팩트 정량화.</p>
+          <div class="tags"><span class="tag">Cohort</span><span class="tag">Retention</span><span class="tag">Segment</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="sec-title">About</h2>
+      <div class="two">
+        <div class="card">
+          <h3>Who I am</h3>
+          <p>데이터로 제품/사용자 경험을 개선하는 분석가. EDA→가설→실험→대시보드의 선순환을 만듭니다.</p>
+          <p class="mono">Python, SQL, dbt, Airflow, BigQuery, Tableau</p>
+        </div>
+        <div class="card">
+          <h3>What I do</h3>
+          <p>• Funnel 분석 · AB테스트 설계 · 코호트 분석<br/>• KPI 트리 설계 · 모니터링 지표 표준화<br/>• 대시보드(운영/임원)와 알림 자동화</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="sec-title">Contact</h2>
+      <div class="card">
+        <p>협업/채용 문의는 아래로 연락 주세요.</p>
+        <p><a class="btn-cta" href="mailto:you@example.com">📮 Mail to you@example.com</a></p>
+        <p class="ghost">GitHub Pages에 그대로 올리면 작동합니다. 폰트/색상/문구만 바꿔도 충분히 차별화돼요.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container" style="padding:0">
+        © <span id="y"></span> YourName. Built for GitHub Pages.
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
